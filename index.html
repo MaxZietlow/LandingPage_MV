@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Veranstaltungen – Münchener Verein</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+
+
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      padding: 14px 40px;
+      background-color: rgb(255, 255, 255);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .navbar img {
+      height: 130px;
+      margin-right: 40px;
+    }
+    .navbar a {
+      margin-right: 20px;
+      text-decoration: none;
+      color: #1d1d1f;
+      font-weight: 500;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+    .navbar a:hover {
+      color: #0071e3;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .event {
+      background: #ffffff;
+      padding: 30px;
+      margin-bottom: 40px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .event h2 {
+      margin-top: 0;
+      font-size: 28px;
+      color: #1d1d1f;
+    }
+    .login-box {
+      background-color: #f2f2f2;
+      padding: 15px;
+      border-left: 4px solid #0071e3;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+    .login-box p {
+      margin: 0 0 10px 0;
+    }
+    input[type="password"] {
+      padding: 8px;
+      margin-right: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    button {
+      padding: 8px 16px;
+      background-color: #0071e3;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #005bb5;
+    }
+    .hidden-content {
+      display: none;
+      margin-top: 20px;
+    }
+    .section {
+      margin-top: 20px;
+    }
+    .section h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+      color: #1d1d1f;
+    }
+    .section p {
+      margin: 0;
+      line-height: 1.6;
+    }
+    .section a {
+      color: #0071e3;
+      text-decoration: underline;
+    }
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: sans-serif;
+    }
+
+    .background-slideshow {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .background-slideshow div {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      animation: fade 30s infinite;
+    }
+
+    .background-slideshow div:nth-child(1) {
+      background-image: url('Bilder/AdobeStock_294641192_1.jpeg');
+      animation-delay: 0s;
+    }
+    .background-slideshow div:nth-child(2) {
+      background-image: url('Bilder/AdobeStock_202169920_2.jpeg');
+      animation-delay: 10s;
+    }
+    .background-slideshow div:nth-child(3) {
+      background-image: url('Bilder/AdobeStock_503697906_3.jpeg');
+      animation-delay: 20s;
+    }
+    .background-slideshow div:nth-child(4) {
+      background-image: url('Bilder/AdobeStock_369977292_4.jpeg');
+      animation-delay: 30s;
+    }
+
+    @keyframes fade {
+      0%   { opacity: 0; }
+      5%  { opacity: 1; }
+      30%  { opacity: 1; }
+      50%  { opacity: 0; }
+      100% { opacity: 0; }
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      padding: 40px;
+      color: white;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+    }
+  </style>
+</head>
+<body>
+    <div class="background-slideshow">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+  <nav class="navbar">
+    <a href="https://www.muenchener-verein.de" target="_blank">
+    <img src="Bilder/MV_Logo_Blau.jpg" alt="Münchener Verein Logo" style="height: 80px; margin-right: 20px;"></a>
+    <a href="#strategie2025">Strategietagung</a>
+    <a href="#innovation2025">Innovationsforum</a>
+    <a href="#sommerfest">Sommerfest</a>
+    <a href="#meisterclub">Meisterclub</a>
+    <a href="#datenschutz">Datenschutz-Schulung</a>
+    <a href="#sonstige">Sonstige Schulungen</a>
+  </nav>
+
+  <div class="container">
+    <!-- Veranstaltungen -->
+    <!-- Strategietagung 2025 -->
+    <div class="event" id="strategie2025">
+      <h2>Strategietagung 2025</h2>
+      <div class="login-box">
+        <p>Bitte Passwort eingeben, um Zugang zu erhalten:</p>
+        <input type="password" id="pw1" placeholder="Passwort eingeben" />
+        <button onclick="checkPassword('pw1', 'content1', 'pw')">Einloggen</button>
+      </div>
+      <div id="content1" class="hidden-content">
+        <div class="section">
+          <h3>Allgemeine Informationen</h3>
+          <p>Strategische Ausrichtung und Prioritäten 2025 im Fokus der Geschäftsführung.</p>
+        </div>
+        <div class="section">
+          <h3>Wichtige Daten</h3>
+          <p>Datum: 15. März 2025<br>Ort: Konferenzzentrum Berlin</p>
+        </div>
+        <div class="section">
+          <h3>Agenda</h3>
+          <p>09:00 - Begrüßung<br>10:00 - Keynote<br>12:00 - Workshops<br>15:00 - Abschlussdiskussion</p>
+        </div>
+        <div class="section">
+          <h3>Ansprechpartner</h3>
+          <p>Dr. Anna Müller – anna.mueller@firma.de</p>
+        </div>
+         <div class="section">
+         <h3>Dokumente</h3>
+        <p><a href="pdfs/strategie-test.pdf" target="_blank" download>Strategietagung 2025 – PDF herunterladen</a></p>
+</div>
+
+      </div>
+    </div>
+
+    <!-- Innovationsforum -->
+    <div class="event" id="innovation2025">
+      <h2>Innovationsforum</h2>
+      <div class="login-box">
+        <p>Bitte Passwort eingeben, um Zugang zu erhalten:</p>
+        <input type="password" id="pw2" placeholder="Passwort eingeben" />
+        <button onclick="checkPassword('pw2', 'content2', 'pw')">Einloggen</button>
+      </div>
+      <div id="content2" class="hidden-content">
+        <div class="section">
+          <h3>Allgemeine Informationen</h3>
+          <p>Ideenschmiede für neue Geschäftsmodelle und Technologien.</p>
+        </div>
+        <div class="section">
+          <h3>Wichtige Daten</h3>
+          <p>Datum: 10. April 2025<br>Ort: Online (Zoom)</p>
+        </div>
+        <div class="section">
+          <h3>Agenda</h3>
+          <p>10:00 - Eröffnung<br>11:00 - Startup Pitches<br>13:00 - Diskussion<br>16:00 - Networking</p>
+        </div>
+        <div class="section">
+          <h3>Ansprechpartner</h3>
+          <p>Maximilian Becker – max.becker@firma.de</p>
+        </div>
+        <div class="section">
+  <h3>Dokumente</h3>
+  <p><a href="pdfs/innovation-test.pdf" target="_blank" download>Innovationsforum – PDF herunterladen</a></p>
+</div>
+
+      </div>
+    </div>
+
+    <!-- Sommerfest -->
+    <div class="event" id="sommerfest">
+      <h2>Sommerfest</h2>
+      <div class="login-box">
+        <p>Bitte Passwort eingeben, um Zugang zu erhalten:</p>
+        <input type="password" id="pw3" placeholder="Passwort eingeben" />
+        <button onclick="checkPassword('pw3', 'content3', 'pw')">Einloggen</button>
+      </div>
+      <div id="content3" class="hidden-content">
+        <div class="section">
+          <h3>Allgemeine Informationen</h3>
+          <p>Jährliches Mitarbeiterfest mit Musik, Essen und Aktivitäten.</p>
+        </div>
+        <div class="section">
+          <h3>Wichtige Daten</h3>
+          <p>Datum: 20. Juli 2025<br>Ort: Firmenpark München</p>
+        </div>
+        <div class="section">
+          <h3>Agenda</h3>
+          <p>14:00 - Begrüßung<br>15:00 - Live-Musik<br>17:00 - Grillen<br>20:00 - Feuerwerk</p>
+        </div>
+        <div class="section">
+          <h3>Ansprechpartner</h3>
+          <p>Julia Meier – julia.meier@firma.de</p>
+        </div>
+        <div class="section">
+  <h3>Dokumente</h3>
+  <p><a href="pdfs/sommerfest-test.pdf" target="_blank" download>Sommerfest – PDF herunterladen</a></p>
+</div>
+
+      </div>
+    </div>
+
+    <!-- Meisterclub -->
+    <div class="event" id="meisterclub">
+      <h2>Meisterclub</h2>
+      <div class="login-box">
+        <p>Bitte Passwort eingeben, um Zugang zu erhalten:</p>
+        <input type="password" id="pw4" placeholder="Passwort eingeben" />
+        <button onclick="checkPassword('pw4', 'content4', 'pw')">Einloggen</button>
+      </div>
+      <div id="content4" class="hidden-content">
+        <div class="section">
+          <h3>Allgemeine Informationen</h3>
+          <p>Exklusives Event für herausragende Vertriebspartner.</p>
+        </div>
+        <div class="section">
+          <h3>Wichtige Daten</h3>
+          <p>Datum: 30. August 2025<br>Ort: Hotel Königshof</p>
+        </div>
+        <div class="section">
+          <h3>Agenda</h3>
+          <p>16:00 - Empfang<br>18:00 - Dinner<br>20:00 - Ehrungen</p>
+        </div>
+        <div class="section">
+          <h3>Ansprechpartner</h3>
+          <p>Thomas Schulte – thomas.schulte@firma.de</p>
+        </div>
+        <div class="section">
+  <h3>Dokumente</h3>
+  <p><a href="pdfs/meisterclub-test.pdf" target="_blank" download>Meisterclub – PDF herunterladen</a></p>
+</div>
+
+      </div>
+    </div>
+
+    <!-- Datenschutz-Schulung -->
+    <div class="event" id="datenschutz">
+      <h2>Datenschutz-Schulung</h2>
+      <div class="login-box">
+        <p>Bitte Passwort eingeben, um Zugang zu erhalten:</p>
+        <input type="password" id="pw5" placeholder="Passwort eingeben" />
+        <button onclick="checkPassword('pw5', 'content5', 'pw')">Einloggen</button>
+      </div>
+      <div id="content5" class="hidden-content">
+        <div class="section">
+          <h3>Allgemeine Informationen</h3>
+          <p>Schulung zur Einhaltung der DSGVO und interner Richtlinien.</p>
+        </div>
+        <div class="section">
+          <h3>Wichtige Daten</h3>
+          <p>Datum: 5. Juni 2025<br>Ort: Raum 202, Hauptsitz</p>
+        </div>
+        <div class="section">
+          <h3>Agenda</h3>
+          <p>09:00 - Einführung<br>10:30 - Gruppenarbeit<br>12:00 - Feedback & Fragen</p>
+        </div>
+        <div class="section">
+          <h3>Ansprechpartner</h3>
+          <p>Sandra Klein – sandra.klein@firma.de</p>
+        </div>
+        <div class="section">
+  <h3>Dokumente</h3>
+  <p><a href="pdfs/Datenschutz-Schulung.pdf" target="_blank" download>Datenschutz-Schulung – PDF herunterladen</a></p>
+</div>
+
+      </div>
+    </div>
+
+    <!-- Sonstige Schulungen -->
+    <div class="event" id="sonstige">
+      <h2>Sonstige Schulungen</h2>
+      <div class="login-box">
+        <p>Bitte Passwort eingeben, um Zugang zu erhalten:</p>
+        <input type="password" id="pw6" placeholder="Passwort eingeben" />
+        <button onclick="checkPassword('pw6', 'content6', 'pw')">Einloggen</button>
+      </div>
+      <div id="content6" class="hidden-content">
+        <div class="section">
+          <h3>Allgemeine Informationen</h3>
+          <p>Verschiedene interne Weiterbildungsmaßnahmen.</p>
+        </div>
+        <div class="section">
+          <h3>Wichtige Daten</h3>
+          <p>Laufend verschiedene Termine<br>Ort: Online & präsent</p>
+        </div>
+        <div class="section">
+          <h3>Agenda</h3>
+          <p>Individuell je nach Thema</p>
+        </div>
+        <div class="section">
+          <h3>Ansprechpartner</h3>
+          <p>Lars Hoffmann – lars.hoffmann@firma.de</p>
+        </div>
+        <div class="section">
+  <h3>Dokumente</h3>
+  <p><a href="pdfs/Sonstige_Schulungen.pdf" target="_blank" download>Sonstige Schulungen – PDF herunterladen</a></p>
+</div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function checkPassword(inputId, contentId, correctPassword) {
+      const input = document.getElementById(inputId);
+      const content = document.getElementById(contentId);
+      if (input.value === correctPassword) {
+        content.style.display = 'block';
+        input.parentElement.style.display = 'none';
+      } else {
+        alert("Falsches Passwort. Bitte erneut versuchen.");
+        input.value = '';
+      }
+    }
+  </script>
+</body>
+</html>
